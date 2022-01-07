@@ -44,7 +44,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'skycards.skycards.urls'
+ROOT_URLCONF = 'skycards.urls'
 
 TEMPLATES = [
     {
