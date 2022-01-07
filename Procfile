@@ -1,1 +1,1 @@
-web: gunicorn skycards.wsgi --log-file -
+web: gunicorn skycards.skycards.wsgi --log-file -
