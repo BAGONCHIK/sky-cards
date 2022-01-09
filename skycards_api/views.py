@@ -12,15 +12,19 @@ from skycards_api.serializers import CreateCardSerializer, CardSerializer
 
 
 class CreateCardView(CreateAPIView):
-    @swagger_auto_schema(tags=['cards'],
+    @swagger_auto_schema(tags=['card'],
                          request_body=CreateCardSerializer,
                          responses={201: openapi.Response('Success', CardSerializer)})
     def post(self, request, *args, **kwargs):
 
         data = {'scheme': '2',
                 'consto': '1',
+                'lat': '55,7522',
+                'ns': 'North',
+                'lon': '37,6156',
+                'ew': 'East',
                 'date': '1',
-                'utc': '2022-01-01 0:00:00',
+                'utc': request.data['time'],   # '2022-01-01 0:00:00'
                 'imgsize': '1200'
                 }
 
