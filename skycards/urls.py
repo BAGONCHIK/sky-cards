@@ -5,5 +5,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('skycards_api.urls'))
+    path('api/', include('skycards_api.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

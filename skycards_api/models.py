@@ -9,7 +9,8 @@ class Card(models.Model):
                              related_query_name='card')
     text = models.CharField(max_length=1023, null=True, blank=True)
     place = models.CharField(max_length=255, null=True, blank=True)
-    card_url = models.CharField(max_length=255, null=True, blank=True)
+    time = models.CharField(max_length=255, null=True, blank=True)
+    card_url = models.CharField(max_length=1023, null=True, blank=True)
     bg_url = models.CharField(max_length=255, null=True, blank=True)
 
     class Meta:
