@@ -32,7 +32,6 @@ class CreateCardView(CreateAPIView):
                 if i != '"':
                     url += i
                 else:
-                    counter = 0
                     break
 
             if counter in [3, 4, 5, 6, 7, 8]:
