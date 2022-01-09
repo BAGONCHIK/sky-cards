@@ -24,7 +24,7 @@ class CreateCardView(CreateAPIView):
                 'lon': '37,6156',
                 'ew': 'East',
                 'date': '1',
-                'utc': request.data['time'],   # '2022-01-01 0:00:00'
+                'utc': request.data['date'] + ' ' + request.data['time'] + ':00',   # '2022-01-01 0:00:00'
                 'imgsize': '1200'
                 }
 
@@ -64,10 +64,12 @@ class CreateCardView(CreateAPIView):
         else:
             bg_url = settings.MEDIA_URL + 'bg-' + request.data['bg_number'] + '.jpg'
 
-        current_user, created = User.objects.get_or_create(email=request.data['email'])
+        current_user, created = User.objects.get_or_create(email=request.data['email'],
+                                                           username=request.data['email'])
         card = Card.objects.create(user=current_user,
                                    text=request.data['text'],
                                    place=request.data['place'],
+                                   date=request.data['date'],
                                    time=request.data['time'],
                                    bg_url=bg_url,
                                    card_url=img)
