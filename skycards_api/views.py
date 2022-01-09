@@ -2,7 +2,7 @@ import requests
 from django.contrib.auth.models import User
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
-from rest_framework import status
+from rest_framework import status, permissions
 from rest_framework.generics import CreateAPIView, RetrieveAPIView
 from rest_framework.response import Response
 from skycards import settings
@@ -12,6 +12,8 @@ from skycards_api.serializers import CreateCardSerializer, CardSerializer
 
 
 class CreateCardView(CreateAPIView):
+    permission_classes = [permissions.AllowAny]
+
     @swagger_auto_schema(tags=['card'],
                          request_body=CreateCardSerializer,
                          responses={201: openapi.Response('Success', CardSerializer)})
