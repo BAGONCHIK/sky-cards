@@ -12,6 +12,7 @@ gunicorn = "*"
 drf-yasg = "*"
 whitenoise = "*"
 dj-database-url = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 
