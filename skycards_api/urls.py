@@ -8,7 +8,7 @@ from skycards_api.views import CreateCardView, GetCardView
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Scycards API",
+        title="Skycards API",
         default_version='v1',
         description="description",
         license=openapi.License(name="BSD License"),
