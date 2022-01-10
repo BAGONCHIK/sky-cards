@@ -1,5 +1,7 @@
 import os
 from pathlib import Path
+
+import dj_database_url
 from decouple import config
 
 
@@ -78,12 +80,7 @@ WSGI_APPLICATION = 'skycards.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('NAME'),
-        'USER': config('USER'),
-        'PASSWORD': config('PASSWORD'),
-    }
+    'default': dj_database_url.config(conn_max_age=500, default=config('DATABASE_URL'))
 }
 
 
